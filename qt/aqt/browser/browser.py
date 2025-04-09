@@ -26,7 +26,6 @@ from anki.models import NotetypeId
 from anki.notes import NoteId
 from anki.scheduler.base import ScheduleCardsAsNew
 from anki.tags import MARKED_TAG
-from anki.utils import is_mac
 from aqt import AnkiQt, gui_hooks
 from aqt.editor import Editor, EditorWebView
 from aqt.errors import show_exception
@@ -289,8 +288,6 @@ class Browser(QMainWindow):
         qconnect(f.actionRedo.triggered, self.redo)
         qconnect(f.actionInvertSelection.triggered, self.table.invert_selection)
         qconnect(f.actionSelectNotes.triggered, self.selectNotes)
-        if not is_mac:
-            f.actionClose.setVisible(False)
         qconnect(f.actionCreateFilteredDeck.triggered, self.createFilteredDeck)
         f.actionCreateFilteredDeck.setShortcuts(["Ctrl+G", "Ctrl+Alt+G"])
 

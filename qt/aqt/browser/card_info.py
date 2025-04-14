@@ -14,7 +14,6 @@ from anki.errors import NotFoundError
 from anki.lang import without_unicode_isolation
 from aqt.qt import *
 from aqt.utils import (
-    addCloseShortcut,
     disable_help_button,
     qconnect,
     restoreGeom,
@@ -53,7 +52,6 @@ class CardInfoDialog(QDialog):
         self.mw.garbage_collect_on_dialog_finish(self)
         disable_help_button(self)
         restoreGeom(self, self.GEOMETRY_KEY, default_size=(800, 800))
-        addCloseShortcut(self)
         setWindowIcon(self)
 
         self.web: AnkiWebView | None = AnkiWebView(
@@ -72,7 +70,6 @@ class CardInfoDialog(QDialog):
         self.copy_debug_info = QShortcut(  # type: ignore
             "ctrl+c", self, activated=lambda: self.copy_card_info(card_id)
         )
-
         self.setLayout(layout)
 
     def copy_card_info(self, card_id: CardId | None) -> None:

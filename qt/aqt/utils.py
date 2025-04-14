@@ -31,7 +31,6 @@ from anki.utils import (
 from aqt.qt import *
 from aqt.qt import (
     PYQT_VERSION_STR,
-    QT_VERSION_STR,
     QAction,
     QApplication,
     QCheckBox,
